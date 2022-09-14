@@ -46,4 +46,9 @@ public class AnnuaireController {
             }
         }
     }
+
+    @GetMapping("searchByLastName")
+    public List<Person> getAllByLastName(@RequestParam("lastName") String lastName){
+        return directory.findAllByLastName(lastName);
+    }
 }
