@@ -21,7 +21,12 @@ public class DirectoryDatabase {
     }
 
     public List<Person> getAll(){
-            return personRepository.findAll();
+//        ArrayList<Long> ids = new ArrayList<>();
+//        ids.add(3L);
+//        ids.add(6L);
+//        personRepository.findAllById(ids);
+//        personRepository.findAll()
+        return personRepository.findAll();
     }
 
     public Optional<Person> findById(Long id){
@@ -35,5 +40,9 @@ public class DirectoryDatabase {
     public void update(Long id, Person person){
         personRepository.save(person);
         System.out.println(person.getId());
+    }
+
+    public List<Person> findAllByLastName(String lastName){
+        return personRepository.findAllByLastName(lastName);
     }
 }
