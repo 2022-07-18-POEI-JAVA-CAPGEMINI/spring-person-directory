@@ -52,4 +52,13 @@ public class Person {
                 ", lastName='" + lastName + '\'' +
                 '}';
     }
+
+    public void setNotNullData(Person newData){
+        if(newData.getFirstName() != null) {
+            this.firstName = newData.getFirstName();
+        }
+        if(newData.getLastName() != null) {
+            this.lastName = newData.getLastName();
+        }
+    }
 }

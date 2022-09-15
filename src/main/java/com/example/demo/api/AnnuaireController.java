@@ -51,4 +51,9 @@ public class AnnuaireController {
     public List<Person> getAllByLastName(@RequestParam("lastName") String lastName){
         return directory.findAllByLastName(lastName);
     }
+
+    @PatchMapping("persons/{id}")
+    public void partialUpdate(@RequestBody Person partialUpdate, @PathVariable("id") Long id){
+        directory.partialUpdate(id, partialUpdate);
+    }
 }

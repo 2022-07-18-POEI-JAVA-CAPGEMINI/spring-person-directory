@@ -45,4 +45,13 @@ public class DirectoryDatabase {
     public List<Person> findAllByLastName(String lastName){
         return personRepository.findAllByLastName(lastName);
     }
+
+    public void partialUpdate(Long id, Person newData){
+        Optional<Person> optional = personRepository.findById(id);
+        if(optional.isPresent()) {
+            Person personDatabase = optional.get();
+            personDatabase.setNotNullData(newData);
+            personRepository.save(personDatabase);
+        }
+    }
 }
